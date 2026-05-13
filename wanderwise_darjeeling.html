@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In the Clouds with Darjeeling — WanderWise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #5a7a4a;
+      --brown: #7a6245;
+      --text: #1a1a1a;
+      --text-secondary: #666;
+      --border: #e0ddd8;
+      --bg: #faf9f7;
+      --bg-secondary: #f3f1ed;
+      --accent-bg: #eef2ea;
+    }
+
+    body {
+      font-family: 'Lora', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ── Masthead ── */
+    .masthead {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0;
+    }
+    .masthead-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      font-style: italic;
+      color: var(--text);
+    }
+    .masthead-tagline {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* ── Hero header ── */
+    .hero-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin: 52px 0 16px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      line-height: 1.08;
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: var(--text);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--green);
+    }
+    .hero-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+    .hero-meta span { margin-right: 22px; }
+
+    /* ── Images ── */
+    .hero-img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+    .hero-caption {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-style: italic;
+      text-align: right;
+      margin: 8px 0 52px;
+    }
+    .full-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+      margin: 40px 0 8px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 36px 0;
+    }
+    .two-col img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+    .img-caption {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-top: 7px;
+    }
+
+    /* ── Typography ── */
+    .intro-text {
+      font-size: 18px;
+      line-height: 1.9;
+      color: var(--text);
+      margin-bottom: 36px;
+    }
+    .intro-text::first-letter {
+      font-size: 68px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      float: left;
+      line-height: 0.75;
+      margin: 10px 12px 0 0;
+      color: var(--green);
+    }
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 52px 0 38px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-divider span {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 0 18px;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .section-heading em {
+      font-style: italic;
+      color: var(--brown);
+    }
+    .body-text {
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .pull-quote {
+      border-left: 3px solid var(--green);
+      margin: 44px 0;
+      padding: 6px 0 6px 30px;
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--text);
+    }
+
+    /* ── Tips box ── */
+    .tips-box {
+      background: var(--accent-bg);
+      border-radius: 4px;
+      border: 1px solid #d4deca;
+      padding: 30px 36px;
+      margin: 44px 0;
+    }
+    .tips-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+    .tips-list {
+      padding-left: 20px;
+      margin: 0;
+    }
+    .tips-list li {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .tips-list li strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── Author bar ── */
+    .author-bar {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 30px 0;
+      margin: 60px 0 0;
+    }
+    .author-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c8d8b4 0%, #8aab6e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #2d4a1e;
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+    .author-bio {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Tags ── */
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 26px 0 0;
+    }
+    .tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 5px 13px;
+      border-radius: 20px;
+      color: var(--text-secondary);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero-title { font-size: 36px; }
+      .two-col { grid-template-columns: 1fr; }
+      .hero-img { height: 260px; }
+      .full-img { height: 240px; }
+      .masthead-tagline { display: none; }
+      .container { padding: 0 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Masthead -->
+    <div class="masthead">
+      <div class="masthead-logo">WanderWise</div>
+      <div class="masthead-tagline">Thoughtful Travel Stories</div>
+    </div>
+
+    <!-- Hero Header -->
+    <div class="hero-label">Destination Essay · India</div>
+    <h1 class="hero-title">In the Clouds<br>with <em>Darjeeling</em></h1>
+    <div class="hero-meta">
+      <span>By Nidhi Roy</span>
+      <span>May 2026</span>
+      <span>12 min read</span>
+    </div>
+
+    <!-- Hero Image -->
+    <img
+      class="hero-img"
+      src="https://static.toiimg.com/thumb/msid-112136658,width-748,height-499,resizemode=4,imgsize-146206/.jpg"
+      alt="Misty tea gardens of Darjeeling"
+      onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80'"
+    />
+    <div class="hero-caption">The famous tea gardens of Darjeeling draped in morning mist — a sight that stays with you.</div>
+
+    <!-- Intro -->
+    <p class="intro-text">
+      Here are places that seduce you slowly, and then there are places that grab you by the collar the moment you arrive. Darjeeling, perched at over 2,000 metres above sea level in the foothills of the Himalayas, belongs firmly in the second category. I'd been told it was beautiful. I hadn't been told it would feel like falling in love.
+    </p>
+
+    <!-- Section: Toy Train -->
+    <div class="section-divider"><span>The Journey Up</span></div>
+    <h2 class="section-heading">Riding the <em>Toy Train</em> into the Sky</h2>
+    <p class="body-text">
+      The Darjeeling Himalayan Railway — affectionately known as the Toy Train — is not merely a mode of transport. It is a time machine. Declared a UNESCO World Heritage Site in 1999, this narrow-gauge railway has been threading its way through pine forests and tea plantations since 1881, and remarkably, little has changed. The locomotive hisses. The whistle shrills. And the world outside the window tilts into a dreamscape of green hills and cloud-wrapped peaks.
+    </p>
+    <p class="body-text">
+      I boarded at New Jalpaiguri on a crisp October morning, clutching a paper cup of chai and a window seat I'd guarded with the ferocity of a seasoned traveller. For the next seven hours, the little train looped and climbed, doubling back on itself in a series of zigzags and spirals called "reversals," huffing past colonial-era stations, roadside tea stalls, and school children waving from the embankments. It was, without question, the most cinematic journey of my life.
+    </p>
+
+    <div class="two-col">
+      <div>
+        <img
+          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/0e/5b/5e/darjeeling-himalayan.jpg?w=800&h=-1&s=1"
+          alt="Darjeeling Toy Train"
+          onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80'"
+        />
+        <div class="img-caption">The iconic Toy Train navigating its famous loops through the hills.</div>
+      </div>
+      <div>
+        <img
+          src="https://pbs.twimg.com/media/GozwpjuWMAAlMHg.jpg"
+          alt="Darjeeling Railway Station"
+          onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80'"
+        />
+        <div class="img-caption">The charming Darjeeling station, unchanged for over a century.</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>"The little train looped and climbed, doubling back on itself — huffing past colonial-era stations, roadside tea stalls, and school children waving from the embankments."</p>
+    </div>
+
+    <!-- Section: Tiger Hill -->
+    <div class="section-divider"><span>Before Sunrise</span></div>
+    <h2 class="section-heading">Tiger Hill & the <em>Golden Hour</em></h2>
+    <p class="body-text">
+      No visit to Darjeeling is complete without the 4 a.m. pilgrimage to Tiger Hill. Bundled into a shared jeep with strangers who quickly become co-conspirators against the cold, you ascend in darkness, guided only by headlights and the distant promise of the world's third-highest peak. At the summit, wrapped in blankets sold by enterprising vendors, you wait with a crowd of two hundred souls, all facing east in silence.
+    </p>
+    <p class="body-text">
+      Then it happens. A blush of saffron on the horizon. Then gold. Then — if the clouds cooperate — the full, impossible apparition of Kangchenjunga, glowing a shade of rose that no photograph has ever adequately captured. I stood there with tears I didn't plan for and a thermos of ginger tea I was very glad I'd brought.
+    </p>
+
+    <img
+      class="full-img"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Kanchenjunga_from_Tiger_Hill.jpg/1200px-Kanchenjunga_from_Tiger_Hill.jpg"
+      alt="Kanchenjunga at sunrise from Tiger Hill"
+      onerror="this.src='https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1200&q=80'"
+    />
+    <div class="hero-caption">Kangchenjunga at dawn from Tiger Hill — a vision worth every freezing minute of the pre-dawn climb.</div>
+
+    <!-- Section: Food & Tea -->
+    <div class="section-divider"><span>The Soul of the Hills</span></div>
+    <h2 class="section-heading">Tea, Momos & <em>Chowrasta</em></h2>
+    <p class="body-text">
+      Darjeeling's food scene is as layered as its landscape. Nepali, Tibetan, Bengali, and British colonial influences have been simmering together for over a century, producing a cuisine that is unlike anything else in India. Breakfast was always a plate of steamed vegetable momos at a no-frills spot near Chowrasta, eaten standing up in the mist, dipped in a fiery red chutney that cleared the sinuses and woke the soul.
+    </p>
+    <p class="body-text">
+      And then there is the tea. A visit to one of Darjeeling's legendary estates — Happy Valley, Makaibari, Glenburn — is not just a tasting; it is an education. The "muscatel" flavour of a first-flush Darjeeling, that extraordinary floral, honey-and-green-grape quality that wine lovers chase in their finest whites, is found only here, only in spring, only in these particular gardens at this particular altitude. I left with three kilograms of loose-leaf tea and no regrets.
+    </p>
+
+    <div class="two-col">
+      <div>
+        <img
+          src="https://teacultureoftheworld.com/cdn/shop/files/DarjeelingFirstFlush-50g.jpg?v=1707471854&width=1445"
+          alt="Darjeeling first flush tea"
+          onerror="this.src='https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80'"
+        />
+        <div class="img-caption">A first-flush Darjeeling — the "champagne of teas."</div>
+      </div>
+      <div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmI0k7NGXTSu69LVUHAkV3Gdha4u8D5W-7iQ&s"
+          alt="Momos street food Darjeeling"
+          onerror="this.src='https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=600&q=80'"
+        />
+        <div class="img-caption">Steamed momos — the street food religion of the hills.</div>
+      </div>
+    </div>
+
+    <!-- Section: Tips -->
+    <div class="section-divider"><span>Before You Go</span></div>
+    <h2 class="section-heading">The Practical <em>Notes</em></h2>
+
+    <div class="tips-box">
+      <h4>Nidhi's Travel Tips for Darjeeling</h4>
+      <ul class="tips-list">
+        <li><strong>Best time to visit:</strong> October–November for clear skies and Kangchenjunga views. March–April for the first flush tea harvest and blooming rhododendrons.</li>
+        <li><strong>Getting there:</strong> Fly into Bagdogra Airport, then a 3-hour drive or the legendary Toy Train to Darjeeling (book well in advance).</li>
+        <li><strong>Tiger Hill:</strong> Book your jeep the evening before through your hotel. Carry layers — it's bitterly cold before sunrise even in October.</li>
+        <li><strong>Tea estates:</strong> Happy Valley Estate offers free walks most mornings. Glenburn and Makaibari have booking requirements but are worth it.</li>
+        <li><strong>Stay:</strong> The Elgin Darjeeling for old-world colonial charm, or Glenburn Tea Estate for a full immersion in plantation life.</li>
+        <li><strong>Pack:</strong> Warm layers regardless of season, rain gear (the hills can cloud over in minutes), and an empty suitcase for all the tea you'll buy.</li>
+      </ul>
+    </div>
+
+    <p class="body-text">
+      Darjeeling does something to a person. It slows the pulse. It sharpens the senses. It reminds you that the world is very large and very beautiful, and that sometimes the best thing you can do is ride a small steam train into the clouds and see what you find there. I found more than I expected. I suspect you will too.
+    </p>
+
+    <!-- Author -->
+    <div class="author-bar">
+      <div class="author-avatar">NR</div>
+      <div>
+        <p class="author-name">Nidhi Roy</p>
+        <p class="author-bio">Travel writer and editor based in Kolkata. Nidhi has wandered through 40 countries but keeps returning to the mountains of Northeast India, where the tea is exceptional and the clouds sit in the valleys like old friends.</p>
+      </div>
+    </div>
+
+    <div class="tag-row">
+      <span class="tag">Darjeeling</span>
+      <span class="tag">India</span>
+      <span class="tag">Mountains</span>
+      <span class="tag">Toy Train</span>
+      <span class="tag">Tea Culture</span>
+      <span class="tag">West Bengal</span>
+    </div>
+
+  </div>
+</body>
+</html>
